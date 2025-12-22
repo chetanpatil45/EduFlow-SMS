@@ -48,14 +48,14 @@
                 <div class="icon-box teacher-icon"><i class='bx bxs-group'></i></div>
                 <h3>Teacher</h3>
                 <p>Mark attendance, manage courses, and track student performance.</p>
-                <a href="teacher-login.jsp" class="btn-portal">Teacher Login</a>
+                <a href="./teacher/teacher-login.jsp" class="btn-portal">Teacher Login</a>
             </div>
 
             <div class="portal-card">
                 <div class="icon-box student-icon"><i class='bx bxs-graduation'></i></div>
                 <h3>Student</h3>
                 <p>View your profile, track attendance, and check academic results.</p>
-                <a href="student-login.student" class="btn-portal">Student Login</a>
+                <a href="./student/student-login.jsp" class="btn-portal">Student Login</a>
             </div>
         </div>
     </section>
