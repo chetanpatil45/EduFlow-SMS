@@ -1,7 +1,7 @@
 package auth;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class AdminLoginServlet extends HttpServlet{
 		
 		System.out.println("Username :: "+userName + " Password :: "+passWord);
 		
-		resp.getWriter().append("Welcome ").append("\nUsername ::"+userName).append("\nPassword :: "+passWord);		
-		
+//		resp.getWriter().append("Welcome ").append("\nUsername ::"+userName).append("\nPassword :: "+passWord);		
+		resp.sendRedirect(req.getContextPath()+"/admin/dashboard.jsp");
 	}
 }
