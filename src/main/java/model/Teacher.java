@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
@@ -23,7 +24,9 @@ class Teacher{
 	private String email;
 	private String pass;
 	private String dept;
-	private String status = "ACTIVE";
+	
+	@ColumnDefault("'Active'") 
+	private String status;
 	
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false, updatable = false)
@@ -73,11 +76,11 @@ class Teacher{
 		this.dept = dept;
 	}
 
-	public boolean isStatus() {
+	public String isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
