@@ -1,4 +1,4 @@
-package admin;
+package controller.admin;
 
 public class AddStudentServlet {
 

@@ -1,4 +1,4 @@
-package auth;
+package controller.auth;
 
 import java.io.IOException;
 
