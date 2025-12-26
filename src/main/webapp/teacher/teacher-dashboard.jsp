@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Dashboard | EduFlow</title>
-    <link rel="stylesheet" href="../style/dashboard-style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style/dashboard-style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -19,7 +19,9 @@
                 <li><a href="mark-attendance.jsp"><i class='bx bxs-calendar-check'></i> Attendance</a></li>
                 <li><a href="manage-marks.jsp" ><i class='bx bxs-edit-location'></i> Marks</a></li>
                 <li><a href="upload-materials.jsp"><i class='bx bxs-file-pdf'></i> Materials</a></li>
-                <li class="logout"><a href="${pageContext.request.contextPath}/Logout"><i class='bx bxs-log-out'></i> Logout</a></li>
+                <li><a href="teacher-settings.jsp"><i class='bx bxs-cog'></i> Settings</a></li>
+                
+                <li class="logout"><a href="<%=request.getContextPath()%>/LogoutServlet"><i class='bx bxs-log-out'></i> Logout</a></li>
             </ul>
         </nav>
 

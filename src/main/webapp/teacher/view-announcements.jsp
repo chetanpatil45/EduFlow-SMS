@@ -15,10 +15,11 @@
             <ul class="nav-links">
                 <li><a href="teacher-dashboard.jsp"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
                 <li><a href="view-announcements.jsp" class="active"><i class='bx bxs-megaphone'></i> Announcements</a></li>
-                <li><a href="teacher-attendance.jsp"><i class='bx bxs-calendar-check'></i> Attendance</a></li>
+                <li><a href="mark-attendance.jsp"><i class='bx bxs-calendar-check'></i> Attendance</a></li>
                 <li><a href="manage-marks.jsp"><i class='bx bxs-edit-location'></i> Marks</a></li>
                 <li><a href="upload-materials.jsp"><i class='bx bxs-file-pdf'></i> Materials</a></li>
-                <li class="logout"><a href="${pageContext.request.contextPath}/Logout"><i class='bx bxs-log-out'></i> Logout</a></li>
+                <li><a href="teacher-settings.jsp"><i class='bx bxs-cog'></i> Settings</a></li>
+                <li class="logout"><a href="<%=request.getContextPath()%>/LogoutServlet"><i class='bx bxs-log-out'></i> Logout</a></li>
             </ul>
         </nav>
 
