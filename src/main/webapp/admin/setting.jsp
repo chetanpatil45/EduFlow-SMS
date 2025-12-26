@@ -21,7 +21,7 @@
                 <li><a href="courses.jsp"><i class='bx bxs-book-content'></i> Courses</a></li>
                 <li><a href="attendance.jsp"><i class='bx bxs-calendar-check'></i> Attendance</a></li>
                 <li><a href="setting.jsp" class="active"><i class='bx bxs-cog'></i> Settings</a></li>
-                <li class="logout"><a href="#"><i class='bx bxs-log-out'></i> Logout</a></li>
+                <li class="logout"><a href="<%=request.getContextPath()%>/LogoutServlet"><i class='bx bxs-log-out'></i> Logout</a></li>
             </ul>
         </nav>
 
