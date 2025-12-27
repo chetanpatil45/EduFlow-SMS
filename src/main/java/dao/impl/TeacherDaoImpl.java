@@ -27,7 +27,7 @@ public class TeacherDaoImpl implements TeacherDao{
 	public Teacher getTeacherByEmail(String email) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Query<Teacher> query = session.createQuery("from teacher where email = :email", Teacher.class);
+		Query<Teacher> query = session.createQuery("from Teacher where email = :email", Teacher.class);
 		query.setParameter("email", email);
 		
 		Teacher teacher = query.uniqueResult();
@@ -47,7 +47,7 @@ public class TeacherDaoImpl implements TeacherDao{
 	@Override
 	public List<Teacher> getAllTeacher() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Teacher> teachers = session.createQuery("from teachers",Teacher.class).list();
+		List<Teacher> teachers = session.createQuery("from Teachers",Teacher.class).list();
 		
 		session.close();
 		return teachers;
@@ -59,7 +59,7 @@ public class TeacherDaoImpl implements TeacherDao{
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
-		Query<Teacher> query = session.createQuery("update teacher set status = :status where teacher_id = :teacher_id",Teacher.class);
+		Query<Teacher> query = session.createQuery("update Teacher set status = :status where teacher_id = :teacher_id",Teacher.class);
 		query.setParameter("status", status);
 		query.setParameter("teacher_id", teacherId);
 		query.executeUpdate();
@@ -96,5 +96,27 @@ public class TeacherDaoImpl implements TeacherDao{
 		trx.commit();
 		session.close();
 	}
-
+	
+	@Override
+	public Teacher login(String email, String pass) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Teacher teacher;
+		
+		try {
+			Query<Teacher> query = session.createQuery("from Teacher where email = :email",Teacher.class);
+			query.setParameter("email", email);
+			
+			teacher = query.uniqueResult();
+			if (teacher != null && teacher.getPass().equals(pass)) {
+				return teacher;			}
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			session.close();
+		}
+		
+		return null;
+	}
 }

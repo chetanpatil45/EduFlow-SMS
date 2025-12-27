@@ -4,6 +4,10 @@ import java.util.List;
 import model.Teacher;
 
 public interface TeacherDao {
+	
+//	login
+	public Teacher login(String email, String pass);
+	
 //	create
 	public void saveTeacher(Teacher teacher);
 	

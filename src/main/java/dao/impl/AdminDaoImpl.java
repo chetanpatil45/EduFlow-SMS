@@ -33,23 +33,26 @@ public class AdminDaoImpl implements AdminDao {
 		
 		return null;
 	}
-
-	@Override
-	public boolean signup(Admin admin) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public Admin getAdmin(int admin_id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Admin admin = session.find(Admin.class, admin_id);
+		
+		session.close();
+		return admin;
 	}
 
 	@Override
 	public void updateAdminProfile(Admin admin) {
 		// TODO Auto-generated method stub
-
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		session.merge(admin);
+		transaction.commit();
+		
+		session.close();
 	}
 
 	@Override

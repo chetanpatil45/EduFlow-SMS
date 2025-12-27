@@ -4,6 +4,9 @@ import java.util.List;
 import model.Student;
 
 public interface StudentDao {
+//	login
+	public Student login(String email, String pass);
+	
 //	CREATE
 	public void saveStudent(Student student);
 	

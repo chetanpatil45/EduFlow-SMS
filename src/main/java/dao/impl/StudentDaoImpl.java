@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import dao.StudentDao;
 
 import model.Student;
+import model.Teacher;
 import util.HibernateUtil;
 
 public class StudentDaoImpl implements StudentDao{
@@ -134,6 +135,31 @@ public class StudentDaoImpl implements StudentDao{
 		List<Student> students = query.list();
 		session.close();
 		return students;
+	}
+	
+	@Override
+	public Student login(String email, String pass) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Student student;
+		
+		try {
+			Query<Student> query = session.createQuery("from Student where email = :email",Student.class);
+			query.setParameter("email", email);
+			
+			student = query.uniqueResult();
+			if (student != null && student.getPass().equals(pass)) {
+				return student;
+			}
+			
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			session.close();
+		}
+		
+		return null;
 	}
 
 	
