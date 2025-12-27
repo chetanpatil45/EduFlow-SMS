@@ -1,14 +1,37 @@
-<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Eduflow</property>
-        <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">postgres</property>
 
-        <!-- use update rather than using create -> because every time when program run
-        first it will delete the existing table and then create table and then  insert data into newly created table.-->
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">true</property>
 
-    </session-factory>
+		<!-- Database connection -->
+		<property name="hibernate.connection.driver_class">
+			org.postgresql.Driver
+		</property>
+
+		<property name="hibernate.connection.url">
+			jdbc:postgresql://localhost:5432/Eduflow
+		</property>
+
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">postgres</property>
+
+		<!-- Hibernate properties -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.PostgreSQLDialect
+		</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<!-- Entity mappings -->
+		<mapping class="model.Admin"/>
+		<mapping class="model.Student"/>
+		<mapping class="model.Teacher"/>
+		<mapping class="model.Attendance"/>
+		<mapping class="model.Announcements"/>
+
+
+	</session-factory>
 </hibernate-configuration>
