@@ -7,7 +7,6 @@ import model.Announcement;
 public interface AnnouncementsDao {
 	public void save(Announcement announcement);
 	public List<Announcement> findActive();
-	public List<Announcement> findByCourse(Long courseId);
 	
     public Announcement findById(Long id);
     public List<Announcement> findAll();
@@ -15,8 +14,8 @@ public interface AnnouncementsDao {
 
 	
 	public List<Announcement> findForAdmin();
-	public List<Announcement> findForTeacher(Long teacherId);
-	public List<Announcement> findForStudent(Long studentId);
+	public List<Announcement> findForTeacher();
+	public List<Announcement> findForStudent();
 
 	public void deactivate(Long id);
 
