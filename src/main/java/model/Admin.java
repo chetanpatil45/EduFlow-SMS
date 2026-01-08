@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "admin")
@@ -17,9 +18,16 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long admin_id;
-	private String name;
+	
+	@Column(unique = true)
+	private String username;
+
+	@Column(unique = true)
 	private String email;
+	
+	private String name;
 	private String pass;
+	private String address;
 	
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false, updatable = false)
@@ -27,17 +35,12 @@ public class Admin {
 	
 	public Admin() {}
 
-	public long getAdmin_id() {
-		return admin_id;
+	public String getUsername() {
+		return username;
 	}
 
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -48,6 +51,14 @@ public class Admin {
 		this.email = email;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPass() {
 		return pass;
 	}
@@ -56,9 +67,23 @@ public class Admin {
 		this.pass = pass;
 	}
 
-	public String getCreated_at() {
-		return created_at.toString();
+	public String getAddress() {
+		return address;
 	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public long getAdmin_id() {
+		return admin_id;
+	}
+
+	public LocalDateTime getCreated_at() {
+		return created_at;
+	}
+
+	
 	
 	
 }
