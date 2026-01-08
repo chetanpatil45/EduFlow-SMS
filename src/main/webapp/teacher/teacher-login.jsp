@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teacher Login | EduFlow</title>
-<link rel="stylesheet" href="../style/auth.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/style/auth.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
