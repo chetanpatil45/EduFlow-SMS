@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "announcements")
-public class Announcement {
+public class Announcements {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

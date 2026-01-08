@@ -2,20 +2,20 @@ package dao;
 
 import java.util.List;
 
-import model.Announcement;
+import model.Announcements;
 
 public interface AnnouncementsDao {
-	public void save(Announcement announcement);
-	public List<Announcement> findActive();
+	public void save(Announcements announcement);
+	public List<Announcements> findActive();
 	
-    public Announcement findById(Long id);
-    public List<Announcement> findAll();
-    public void update(Announcement announcement);
+    public Announcements findById(Long id);
+    public List<Announcements> findAll();
+    public void update(Announcements announcement);
 
 	
-	public List<Announcement> findForAdmin();
-	public List<Announcement> findForTeacher();
-	public List<Announcement> findForStudent();
+	public List<Announcements> findForAdmin();
+	public List<Announcements> findForTeacher();
+	public List<Announcements> findForStudent();
 
 	public void deactivate(Long id);
 

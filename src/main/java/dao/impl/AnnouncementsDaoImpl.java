@@ -6,13 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import dao.AnnouncementsDao;
-import model.Announcement;
+import model.Announcements;
 import util.HibernateUtil;
 
 public class AnnouncementsDaoImpl implements AnnouncementsDao{
 
 	@Override
-	public void save(Announcement announcement) {
+	public void save(Announcements announcement) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		
@@ -22,10 +22,10 @@ public class AnnouncementsDaoImpl implements AnnouncementsDao{
 	}
 
 	@Override
-	public List<Announcement> findActive() {
+	public List<Announcements> findActive() {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Announcement> list = session.createQuery("from Announcement where status = true",Announcement.class).list();
+		List<Announcements> list = session.createQuery("from Announcement where status = true",Announcements.class).list();
 		
 		session.close();
 		return list;
@@ -33,27 +33,27 @@ public class AnnouncementsDaoImpl implements AnnouncementsDao{
 
 
 	@Override
-	public Announcement findById(Long id) {
+	public Announcements findById(Long id) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Announcement announcement = session.find(Announcement.class, id);
+		Announcements announcement = session.find(Announcements.class, id);
 		
 		session.close();
 		return announcement;
 	}
 
 	@Override
-	public List<Announcement> findAll() {
+	public List<Announcements> findAll() {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Announcement> list = session.createQuery("from Announcement",Announcement.class).list();
+		List<Announcements> list = session.createQuery("from Announcement",Announcements.class).list();
 		
 		session.close();
 		return list;
 	}
 
 	@Override
-	public void update(Announcement announcement) {
+	public void update(Announcements announcement) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction trx = session.beginTransaction();
@@ -64,30 +64,30 @@ public class AnnouncementsDaoImpl implements AnnouncementsDao{
 	}
 
 	@Override
-	public List<Announcement> findForAdmin() {
+	public List<Announcements> findForAdmin() {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Announcement> list = session.createQuery("from Announcement where targetRole = 'ADMIN'",Announcement.class).list();
+		List<Announcements> list = session.createQuery("from Announcement where targetRole = 'ADMIN'",Announcements.class).list();
 		
 		session.close();
 		return list;
 	}
 
 	@Override
-	public List<Announcement> findForTeacher() {
+	public List<Announcements> findForTeacher() {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Announcement> list = session.createQuery("from Announcement where targetRole = 'TEACHER'",Announcement.class).list();
+		List<Announcements> list = session.createQuery("from Announcement where targetRole = 'TEACHER'",Announcements.class).list();
 		
 		session.close();
 		return list;
 	}
 
 	@Override
-	public List<Announcement> findForStudent() {
+	public List<Announcements> findForStudent() {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		List<Announcement> list = session.createQuery("from Announcement where targetRole = 'STUDENT'",Announcement.class).list();
+		List<Announcements> list = session.createQuery("from Announcement where targetRole = 'STUDENT'",Announcements.class).list();
 		
 		session.close();  
 		return list;
@@ -99,7 +99,7 @@ public class AnnouncementsDaoImpl implements AnnouncementsDao{
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction trx = session.beginTransaction();
 		
-		Announcement announcement = session.find(Announcement.class, id);
+		Announcements announcement = session.find(Announcements.class, id);
 		session.remove(announcement);
 		
 		trx.commit();
