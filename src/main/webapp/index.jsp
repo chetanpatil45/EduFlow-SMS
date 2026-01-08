@@ -61,7 +61,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Student Management System. Built for excellence.</p>
+        <p>&copy; 2026 Student Management System. Built for excellence.</p>
     </footer>
 
 </body>

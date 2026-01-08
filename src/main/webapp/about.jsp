@@ -58,7 +58,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Student Management System. Empowering Institutions Worldwide.</p>
+        <p>&copy; 2026 Student Management System. Empowering Institutions Worldwide.</p>
     </footer>
 
 </body>
