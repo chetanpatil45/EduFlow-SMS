@@ -1,5 +1,17 @@
+<%@page import="model.Admin"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	session = request.getSession(false);
+	Admin admin = (Admin) session.getAttribute("admin");
+	
+	if(session == null || admin == null){
+		response.sendRedirect(request.getContextPath()+"/admin/login.jsp");
+	}
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - EduFlow </title>
-    <link rel="stylesheet" href="../style/dashboard-style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style/dashboard-style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -33,8 +45,8 @@
             <header>
                 <h1>Welcome back, Admin!</h1>
                 <div class="user-profile">
-                    <span>Admin User</span>
-                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=4f46e5&color=fff" alt="profile" style="width: 40px; height: 40px; border-radius: 50%;">
+                    <span><%=admin.getName() %></span>
+                    <img src="https://ui-avatars.com/api/?name=<%=admin.getName() %>&background=4f46e5&color=fff" alt="profile" style="width: 40px; height: 40px; border-radius: 50%;">
                 </div>
             </header>
 

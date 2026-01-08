@@ -6,9 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Record</title>
-    <link rel="stylesheet" href="../style/dashboard-style.css"> <link rel="stylesheet" href="../style/form-style.css"> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style/dashboard-style.css"> <link rel="stylesheet" href="../style/form-style.css"> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+
+<%
+	String error = (String) request.getAttribute("error");
+	String success = (String) request.getAttribute("sucess");
+	if(error != null){
+		%>
+		<script type="text/javascript">
+			alert("<%= error %>");
+		</script>
+		<%
+	}
+	else if(success!= null){
+		%>
+		<script type="text/javascript">
+			alert("<%= success %>");
+		</script>
+		<%
+	}
+%>
+
     <div class="dashboard-container">
         <nav class="sidebar">
             <div class="logo"><h2>EduFlow Admin</h2></div>
