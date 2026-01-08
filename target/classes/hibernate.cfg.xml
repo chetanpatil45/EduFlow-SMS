@@ -10,7 +10,7 @@
 		</property>
 
 		<property name="hibernate.connection.url">
-			jdbc:postgresql://localhost:5432/Eduflow
+			jdbc:postgresql://localhost:5432/EduFlow
 		</property>
 
 		<property name="hibernate.connection.username">postgres</property>
