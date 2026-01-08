@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import dao.CourseDao;
 import model.Course;
@@ -61,6 +62,25 @@ public class CourseDaoImpl implements CourseDao{
 		
 		session.close();
 		return list;
+	}
+	
+	@Override
+	public Course getCourseByName(String course_name){
+		Session session = HibernateUtil.getSessionFactory().openSession();
+	    Course course = null;
+
+	    try {
+	        Query<Course> query = session.createQuery(
+	            "FROM Course c WHERE c.name = :name", Course.class
+	        );
+	        query.setParameter("name", course_name);
+
+	        course = query.uniqueResult(); // returns null if not found
+	    } finally {
+	        session.close();
+	    }
+
+	    return course;
 	}
 
 }

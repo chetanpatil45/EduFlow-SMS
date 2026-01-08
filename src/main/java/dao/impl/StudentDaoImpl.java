@@ -15,12 +15,25 @@ import util.HibernateUtil;
 public class StudentDaoImpl implements StudentDao{
 
 	@Override
-	public void saveStudent(Student student) {
+	public boolean saveStudent(Student student) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction trx = session.beginTransaction();
-		session.persist(student);
-		trx.commit();
-		session.close();
+		Transaction trx;
+		
+		student.setRoll(getTotalStudentCount()+1);
+		
+		try {
+			trx = session.beginTransaction();
+			session.persist(student);
+			trx.commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;		
+		}finally {
+			session.close();			
+		}
+		
 	}
 
 	@Override
@@ -161,7 +174,26 @@ public class StudentDaoImpl implements StudentDao{
 		
 		return null;
 	}
+	
+	public long getRoll() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Long count = session.createQuery("SELECT COUNT(*) FROM student WHERE course_id = :course_id",Long.class).uniqueResult();
+		
+		session.close();
+		return count;
+	}
 
 	
 	
 }
+
+/*
+ * SELECT 
+    c.course_name,
+    COUNT(s.stud_id) AS total_students
+FROM course c
+LEFT JOIN student s ON s.course_id = c.course_id
+WHERE s.status = 'ACTIVE'
+GROUP BY c.course_name;
+
+ * */

@@ -11,6 +11,7 @@ public interface CourseDao {
 	public Course getCourse(long id);
 	
 	public List<Course> getAllCourses();
+	public Course getCourseByName(String course_name);
 	
 	
 }

@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,16 +21,21 @@ public class Student{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long stud_id; 
 	
-	private long roll;
 	private String name;
 	private String email;
 	private String pass;
-	private String course;
+	private String address;
 	
 	private int sem;
 	
+	@ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+	
 	@ColumnDefault("'Active'") 
 	private String status;
+	
+	private long roll;
 	
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false, updatable = false)
@@ -71,11 +78,11 @@ public class Student{
 		this.pass = pass;
 	}
 
-	public String getCourse() {
+	public Course getCourse() {
 		return course;
 	}
 
-	public void setCourse(String course) {
+	public void setCourse(Course course) {
 		this.course = course;
 	}
 
@@ -100,6 +107,12 @@ public class Student{
 	}
 
 	
+	public String getAddress() {
+		return address;
+	}
 	
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 }

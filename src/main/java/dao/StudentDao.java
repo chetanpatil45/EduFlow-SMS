@@ -8,7 +8,7 @@ public interface StudentDao {
 	public Student login(String email, String pass);
 	
 //	CREATE
-	public void saveStudent(Student student);
+	public boolean saveStudent(Student student);
 	
 //	Get students
 	public Student getStudentByEmail(String email);
