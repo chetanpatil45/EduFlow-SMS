@@ -3,8 +3,9 @@ package dao;
 import model.Admin;
 
 public interface AdminDao {
-	public Admin login(String email, String pass);
-	public void save(Admin admin);
+	public Admin getAdminByEmail(String email);
+	public Admin getAdminByUsername(String username);
+	public boolean save(Admin admin);
 	
 	public boolean adminExists();
 	

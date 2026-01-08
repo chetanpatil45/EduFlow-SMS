@@ -11,7 +11,7 @@ import util.HibernateUtil;
 public class AdminDaoImpl implements AdminDao {
 
 	@Override
-	public Admin login(String email, String pass) {
+	public Admin getAdminByEmail(String email) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Admin admin;
 		
@@ -20,18 +20,15 @@ public class AdminDaoImpl implements AdminDao {
 			query.setParameter("email", email);
 			
 			admin = query.uniqueResult();
-			if (admin != null &&admin.getPass().equals(pass)) {
-				return admin;
-			}
+			return admin;	
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
+			return null;
 		}
 		finally {
 			session.close();
 		}
-		
-		return null;
 	}
 	
 	@Override
@@ -72,8 +69,7 @@ public class AdminDaoImpl implements AdminDao {
 
 
 	@Override
-	public void save(Admin admin) {
-
+	public boolean save(Admin admin) {
 	    Session session = HibernateUtil.getSessionFactory().openSession();
 	    Transaction tx = null;
 
@@ -81,12 +77,34 @@ public class AdminDaoImpl implements AdminDao {
 	        tx = session.beginTransaction();
 	        session.persist(admin);
 	        tx.commit();
+	        return true;
 	    } catch (Exception e) {
 	        if (tx != null) tx.rollback();
-	        throw e;
+	        return false;	        
 	    } finally {
 	        session.close();
 	    }
+	}
+	
+	@Override
+	public Admin getAdminByUsername(String username) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Admin admin;
+		
+		try {
+			Query<Admin> query = session.createQuery("from Admin where username = :username",Admin.class);			
+			query.setParameter("email", username);
+			
+			admin = query.uniqueResult();
+			return admin;	
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		finally {
+			session.close();
+		}
 	}
 
 
