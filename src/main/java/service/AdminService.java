@@ -36,4 +36,6 @@ public class AdminService {
 	public boolean isAdminExits() {
 		return admindao.adminExists();
 	}
+	
+	
 }
