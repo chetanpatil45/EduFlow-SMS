@@ -38,19 +38,19 @@
 				<h2>EduFlow Admin</h2>
 			</div>
 			<ul class="nav-links">
-				<li><a href="dashboard.jsp"><i class='bx bxs-dashboard'></i>
+				<li><a href="<%=request.getContextPath() %>/admin/dashboard.jsp"><i class='bx bxs-dashboard'></i>
 						Dashboard</a></li>
-				<li><a href="manage-announcements.jsp"><i
+				<li><a href="<%=request.getContextPath() %>/admin/manage-announcements.jsp"><i
 						class='bx bxs-megaphone'></i> Announcements</a></li>
-				<li><a href="students.jsp" class="active"><i
+				<li><a href="<%=request.getContextPath() %>/admin/students.jsp" class="active"><i
 						class='bx bxs-user-detail'></i> Students</a></li>
-				<li><a href="teachers.jsp"><i class='bx bxs-user-detail'></i>
+				<li><a href="<%=request.getContextPath() %>/admin/teachers.jsp"><i class='bx bxs-user-detail'></i>
 						Teachers</a></li>
-				<li><a href="courses.jsp"><i class='bx bxs-book-content'></i>
+				<li><a href="<%=request.getContextPath() %>/admin/courses.jsp"><i class='bx bxs-book-content'></i>
 						Courses</a></li>
-				<li><a href="attendance.jsp"><i
+				<li><a href="<%=request.getContextPath() %>/admin/attendance.jsp"><i
 						class='bx bxs-calendar-check'></i> Attendance</a></li>
-				<li><a href="setting.jsp"><i class='bx bxs-cog'></i>
+				<li><a href="<%=request.getContextPath() %>/admin/setting.jsp"><i class='bx bxs-cog'></i>
 						Settings</a></li>
 				<li class="logout"><a
 					href="<%=request.getContextPath()%>/LogoutServlet"><i
