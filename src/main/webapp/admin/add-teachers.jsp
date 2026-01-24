@@ -53,7 +53,7 @@
             <section class="form-container">
                 <div class="form-card">
                     <h2>Enter Details</h2>
-                    <form action="AddUserServlet" method="post">
+                    <form action="<%=request.getContextPath() %>/AddTeacherServlet" method="post">
                         <div class="form-grid">
                             <div class="input-group">
                                 <label>Full Name</label>

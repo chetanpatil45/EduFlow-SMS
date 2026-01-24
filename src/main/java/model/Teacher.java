@@ -18,12 +18,14 @@ public class Teacher{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long teacher_id;
-	
-	private long emp_id;
+
 	private String name;
 	private String email;
 	private String pass;
 	private String dept;
+	private String address;
+	private String phone;
+	
 	
 	@ColumnDefault("'Active'") 
 	private String status;
@@ -34,14 +36,6 @@ public class Teacher{
 
 	public long getTeacher_id() {
 		return teacher_id;
-	}
-
-	public long getEmp_id() {
-		return emp_id;
-	}
-
-	public void setEmp_id(long emp_id) {
-		this.emp_id = emp_id;
 	}
 
 	public String getName() {
@@ -87,6 +81,26 @@ public class Teacher{
 	public String getCreated_at() {
 		return created_at.toString();
 	}
+
+	public void setAddress(String address) {
+		// TODO Auto-generated method stub
+		this.address = address;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setPhone(String phone) {
+		// TODO Auto-generated method stub
+		this.phone = phone;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+	
+	
 
 	
 }
