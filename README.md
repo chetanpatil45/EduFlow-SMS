@@ -120,23 +120,3 @@ EduFlow-SMS
 
 **Chetan Patil**
 Java Developer | Web Application Developer
-
----
-
-## 📄 License
-
-This project is for **learning and educational purposes**.
-
-```
-
----
-
-If you want, I can also:
-- 🔥 Make it **resume-ready**
-- 🌐 Add **screenshots section properly**
-- 📦 Convert this into a **Spring Boot README**
-- 🧪 Add **API / module documentation**
-
-Just tell me 😄
-::contentReference[oaicite:0]{index=0}
-```
