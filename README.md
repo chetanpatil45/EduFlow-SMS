@@ -119,4 +119,3 @@ EduFlow-SMS
 ## 👨‍💻 Author
 
 **Chetan Patil**
-Java Developer | Web Application Developer
